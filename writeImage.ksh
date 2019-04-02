@@ -11,6 +11,12 @@ line=`head -n 1 ralColoursLeft`
 #get RGB
 rgb= echo $line | sed 's/.*#//g'
 
+echo $rgb
+
+rgbColour="rgb($rgb)"
+
+echo $rgbColour
+
 #replace # with newline
 
 #card=$(sed 's/#/\n/g' <<< $line)
@@ -19,6 +25,4 @@ rgb= echo $line | sed 's/.*#//g'
 card=${line//#/\\n}  #bash substition works but stupid bash handling of new line prints \n
 
 
-echo "zz"
-echo -e $card
-convert -size 1000x1000 xc:"$rgb" -gravity center -weight 700 -pointsize 48 -annotate 0 "$card" c.jpg
+convert -size 1000x1000 xc:"$rgbColour" -gravity center -weight 700 -pointsize 48 -annotate 0 "$card" c.jpg
