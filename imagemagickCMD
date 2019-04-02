@@ -1,0 +1,1 @@
+convert -size 1000x1000 xc:red -gravity center -weight 700 -pointsize 48 -annotate 0 "test" c.jpg
