@@ -9,13 +9,10 @@ line=`head -n 1 ralColoursLeft`
 #sed -i '1d' ralColoursLeft
 
 #get RGB
-rgb= echo $line | sed 's/.*#//g'
+rgb=$(sed 's/.*#//g' <<< $line)
 
-echo $rgb
 
 rgbColour="rgb($rgb)"
-
-echo $rgbColour
 
 #replace # with newline
 
