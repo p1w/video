@@ -23,3 +23,9 @@ card=${line//#/\\n}  #bash substition works but stupid bash handling of new line
 
 
 convert -size 1000x1000 xc:"$rgbColour" -gravity center -weight 700 -pointsize 48 -annotate 0 "$card" card.jpg
+
+
+#create video from card.jpg
+
+#TODO change scaling, video format?
+ffmpeg -y -loop 1 -i card.jpg -c:v libx264 -t 5 -pix_fmt yuv420p -vf scale=320:240 out.mp4
